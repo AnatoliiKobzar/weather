@@ -10,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #000;
 }
 
 code {
@@ -31,6 +32,12 @@ p {
     padding: 5px;
     margin: 0;
 }
+
+button::before {
+     color: black !important;
+}
+
+
 `;
 
 export default GlobalStyle;
