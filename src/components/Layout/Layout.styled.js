@@ -4,7 +4,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
-  width: 960px;
+  max-width: 960px;
 `;
 
 export const HeaderContainer = styled.div`
@@ -21,7 +21,6 @@ export const HeaderContainer = styled.div`
 export const Header = styled.header`
   border-bottom: solid 1px #949494;
   padding: 8px 0;
-  margin-bottom: 16px;
 `;
 
 export const Wrap = styled.div`
@@ -40,4 +39,9 @@ export const Wrap = styled.div`
 export const Footer = styled.footer`
   position: fixed;
   bottom: 0;
+  padding: 8px;
+  width: 100%;
+  color: #999;
+  background-color: #3f3f3f;
+  text-align: center;
 `;

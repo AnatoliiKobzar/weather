@@ -26,11 +26,11 @@ const Layout = () => {
           <Outlet />
         </main>
       </Container>
-      <Container>
-        <Footer>
-          <p>Created by Anatolii Kobzar</p>
-        </Footer>
-      </Container>
+      <Footer>
+        <Container>
+          <p>Created by Anatolii Kobzar, 2023</p>
+        </Container>
+      </Footer>
     </div>
   );
 };

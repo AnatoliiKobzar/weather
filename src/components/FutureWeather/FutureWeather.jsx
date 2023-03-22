@@ -1,18 +1,27 @@
 import { useEffect, useState } from 'react';
 import { getWeatherIn5Days } from 'services/weatherAPI';
-import Slider from 'react-slick';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Desc, SliderWrap, WrapFut } from './FutureWeather.styled';
+import { Button } from 'components/CurrentWeather/CurrentWeather.styled';
 
 const FutureWeather = ({ city }) => {
   const settings = {
     className: 'center',
-    infinite: true,
+    infinite: false,
     centerPadding: '60px',
-    slidesToShow: 5,
+    slidesToShow: 7,
     swipeToSlide: true,
+    slidesToScroll: 2,
   };
 
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handelGoBack = () => {
+    navigate(location?.state?.from ?? '/');
+  };
 
   useEffect(() => {
     if (!city) {
@@ -30,11 +39,17 @@ const FutureWeather = ({ city }) => {
 
   return (
     <div>
-      <h2>{name}</h2>
-      <p>Weather in 5 days</p>
-      <Slider {...settings}>
+      <WrapFut>
+        <h2>{name}</h2>
+        <Button type="button" onClick={handelGoBack}>
+          Go back
+        </Button>
+      </WrapFut>
+      <Desc>Weather in 5 days</Desc>
+
+      <SliderWrap {...settings}>
         {date.map(item => (
-          <li key={item.dt}>
+          <div key={item.dt}>
             <p>{item.dt_txt.slice(0, -3)}</p>
             <img
               src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
@@ -45,9 +60,9 @@ const FutureWeather = ({ city }) => {
                 item.weather[0].description.slice(1)}
             </p>
             <p>Temp: {Math.round(Number(item.main.temp))}&#8451;</p>
-          </li>
+          </div>
         ))}
-      </Slider>
+      </SliderWrap>
     </div>
   );
 };

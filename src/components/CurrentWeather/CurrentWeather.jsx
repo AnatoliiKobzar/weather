@@ -1,41 +1,49 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { getCurrentWeather } from 'services/weatherAPI';
+import { Button, Form, Input, Section, Wrapper } from './CurrentWeather.styled';
 
 const Weather = ({ changeCurrentCity }) => {
-  const [city, setCity] = useState(null);
+  // const [city, setCity] = useState(null);
   const [name, setName] = useState('');
   const [icon, setIcon] = useState('');
   const [main, setMain] = useState('');
   const [temp, setTemp] = useState('');
+  const [humidity, setHumidity] = useState('');
+  const [wind, setWind] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (!city) {
+    if (!query) {
       return;
     }
 
-    changeCurrentCity(city);
+    changeCurrentCity(query);
 
-    getCurrentWeather(city).then(resp => {
+    getCurrentWeather(query).then(resp => {
       setName(resp.name);
       setIcon(resp.weather[0].icon);
       setMain(resp.weather[0].description);
       setTemp(Number(resp.main.temp));
+      setHumidity(resp.main.humidity);
+      setWind(resp.wind.speed);
     });
-  }, [changeCurrentCity, city]);
+  }, [changeCurrentCity, query]);
 
   const handelCitySearch = event => {
     event.preventDefault();
-    setCity(event.target.city.value);
+    setSearchParams({ query: event.target.city.value });
   };
 
   return (
-    <div>
-      <form onSubmit={handelCitySearch}>
-        <input type="text" name="city" placeholder="Enter your city" />
-        <button type="submit">Search</button>
-      </form>
-      {city && (
-        <div>
+    <Section>
+      <Form onSubmit={handelCitySearch}>
+        <Input type="text" name="city" placeholder="Enter your city" />
+        <Button type="submit">Search</Button>
+      </Form>
+      {query && (
+        <Wrapper>
           <h2>{name}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
@@ -43,9 +51,11 @@ const Weather = ({ changeCurrentCity }) => {
           />
           <p>{main.charAt(0).toUpperCase() + main.slice(1)}</p>
           <p>Temp: {Math.round(temp)}&#8451;</p>
-        </div>
+          <p>Humidity: {humidity}%</p>
+          <p>Wind speed: {wind}m/c</p>
+        </Wrapper>
       )}
-    </div>
+    </Section>
   );
 };
 

@@ -28,7 +28,7 @@ img {
     display: block;
 }
 
-p {
+p, h1, h2 {
     padding: 5px;
     margin: 0;
 }
