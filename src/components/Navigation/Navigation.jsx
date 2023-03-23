@@ -6,7 +6,8 @@ const Navigation = () => {
 
   return (
     <Nav>
-      <Link to="/">Current weather</Link>
+      <Link to="/">Home</Link>
+      <Link to="/capitals">Capitals</Link>
       <Link state={{ from: location }} to="/future_weather">
         Weather in 5 days
       </Link>

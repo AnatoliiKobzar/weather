@@ -1,3 +1,4 @@
+import Capitals from 'pages/Capitals';
 import DetailsWeather from 'pages/DetailsWeather';
 import Home from 'pages/Home';
 import { useState } from 'react';
@@ -15,6 +16,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home changeCurrentCity={changeCurrentCity} />} />
+        <Route path="capitals" element={<Capitals />} />
         <Route path="future_weather" element={<DetailsWeather city={city} />} />
       </Route>
     </Routes>

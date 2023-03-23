@@ -4,7 +4,6 @@ import { getCurrentWeather } from 'services/weatherAPI';
 import { Button, Form, Input, Section, Wrapper } from './CurrentWeather.styled';
 
 const Weather = ({ changeCurrentCity }) => {
-  // const [city, setCity] = useState(null);
   const [name, setName] = useState('');
   const [icon, setIcon] = useState('');
   const [main, setMain] = useState('');
@@ -29,6 +28,10 @@ const Weather = ({ changeCurrentCity }) => {
       setHumidity(resp.main.humidity);
       setWind(resp.wind.speed);
     });
+
+    return () => {
+      changeCurrentCity(null);
+    };
   }, [changeCurrentCity, query]);
 
   const handelCitySearch = event => {
