@@ -1,9 +1,9 @@
-import WeatherInCapitals from 'components/WeatherInCatitals/WeatherInCatitals';
+import CapitalsList from 'components/CatitalsList/CatitalsList';
 
 const Capitals = () => {
   return (
     <div>
-      <WeatherInCapitals />
+      <CapitalsList />
     </div>
   );
 };
