@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { getCurrentWeather } from 'services/weatherAPI';
+// import { useState } from 'react';
+// import { getCurrentWeather } from 'services/weatherAPI';
 
 const WeatherInCapitals = () => {
   // const capitals = [
