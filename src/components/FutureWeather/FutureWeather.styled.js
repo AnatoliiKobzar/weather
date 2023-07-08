@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 export const WrapFut = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 16px;
+  color: #fff;
 `;
 
 export const Desc = styled.p`
-  margin-bottom: 16px;
   font-size: 20px;
 `;
 

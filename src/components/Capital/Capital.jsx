@@ -3,6 +3,9 @@ import ReactCardFlip from 'react-card-flip';
 import { useEffect } from 'react';
 import { getCurrentWeather } from 'services/weatherAPI';
 import { Wrapper } from 'components/CurrentWeather/CurrentWeather.styled';
+import { Modal } from 'components/Modal/Modal';
+import FutureWeather from 'components/FutureWeather/FutureWeather';
+import { Button } from './Capital.styled';
 
 const Capital = ({ country, capital }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -13,11 +16,22 @@ const Capital = ({ country, capital }) => {
   const [humidity, setHumidity] = useState('');
   const [wind, setWind] = useState('');
   const [currentCity, setCurrentCity] = useState('');
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const handleClick = e => {
-    e.preventDefault();
-    setIsFlipped(!isFlipped);
-    setCurrentCity(capital);
+    if (e.target === e.currentTarget) {
+      e.preventDefault();
+      setIsFlipped(!isFlipped);
+      setCurrentCity(capital);
+    }
+  };
+
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(false);
   };
 
   useEffect(() => {
@@ -52,6 +66,17 @@ const Capital = ({ country, capital }) => {
         <p>Temp: {Math.round(temp)}&#8451;</p>
         <p>Humidity: {humidity}%</p>
         <p>Wind speed: {wind}m/c</p>
+        <button type="button" onClick={openModal}>
+          Show more details
+        </button>
+        {isOpenModal && (
+          <Modal>
+            <Button type="button" onClick={closeModal}>
+              Go back
+            </Button>
+            <FutureWeather city={currentCity} />
+          </Modal>
+        )}
       </Wrapper>
     </ReactCardFlip>
   );

@@ -31,3 +31,24 @@ export const ListItem = styled.li`
     #b4a3d5 100%
   );
 `;
+
+export const Button = styled.button`
+  position: absolute;
+  top: 0;
+  padding: 8px 16px;
+  margin-left: 8px;
+  border-radius: 4px;
+  border: none;
+  height: 38px;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(93, 138, 221);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
+  :hover {
+    background-color: rgba(63, 120, 226, 1);
+  }
+`;

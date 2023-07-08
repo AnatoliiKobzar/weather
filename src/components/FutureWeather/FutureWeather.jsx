@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getWeatherIn5Days } from 'services/weatherAPI';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { Desc, SliderWrap, WrapFut } from './FutureWeather.styled';
-import { Button } from 'components/CurrentWeather/CurrentWeather.styled';
 
 const FutureWeather = ({ city }) => {
   const settings = {
@@ -16,12 +14,6 @@ const FutureWeather = ({ city }) => {
 
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const handelGoBack = () => {
-    navigate(location?.state?.from ?? '/');
-  };
 
   useEffect(() => {
     if (!city) {
@@ -41,11 +33,8 @@ const FutureWeather = ({ city }) => {
     <div>
       <WrapFut>
         <h2>{name}</h2>
-        <Button type="button" onClick={handelGoBack}>
-          Go back
-        </Button>
+        <Desc>Weather in 5 days</Desc>
       </WrapFut>
-      <Desc>Weather in 5 days</Desc>
 
       <SliderWrap {...settings}>
         {date.map(item => (
