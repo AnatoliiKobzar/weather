@@ -1,9 +1,9 @@
 import Weather from 'components/CurrentWeather/CurrentWeather';
 
-const Home = ({ changeCurrentCity }) => {
+const Home = () => {
   return (
     <div>
-      <Weather changeCurrentCity={changeCurrentCity} />
+      <Weather />
     </div>
   );
 };
