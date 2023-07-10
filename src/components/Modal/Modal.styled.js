@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Overlay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,11 +15,17 @@ export const Overlay = styled.div`
   background-color: rgba(29, 28, 28, 0.8);
   z-index: 1200;
 `;
+
 export const ModalWindow = styled.div`
   position: absolute;
   top: 20%;
-  left: 50%;
-  transform: translate(-51%);
+  width: 300px;
 
-  width: 855px;
+  @media screen and (min-width: 768px) {
+    width: 668px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 855px;
+  }
 `;

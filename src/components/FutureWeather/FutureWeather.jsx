@@ -1,15 +1,30 @@
 import { useEffect, useState } from 'react';
 import { getWeatherIn5Days } from 'services/weatherAPI';
-import { Desc, SliderWrap, WrapFut } from './FutureWeather.styled';
+import { Desc, SliderItem, SliderWrap, WrapFut } from './FutureWeather.styled';
 
 const FutureWeather = ({ city }) => {
   const settings = {
-    className: 'center',
+    slidesToShow: 6,
+    slidesToScroll: 4,
     infinite: false,
-    centerPadding: '60px',
-    slidesToShow: 7,
-    swipeToSlide: true,
-    slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 1200, // Указываем ширину экрана при которой срабатывает брэйкпоинт
+        settings: {
+          arrows: false,
+          slidesToShow: 5,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 768, // Указываем ширину экрана при которой срабатывает брэйкпоинт
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
 
   const [date, setDate] = useState('');
@@ -35,10 +50,9 @@ const FutureWeather = ({ city }) => {
         <h2>{name}</h2>
         <Desc>Weather in 5 days</Desc>
       </WrapFut>
-
       <SliderWrap {...settings}>
         {date.map(item => (
-          <div key={item.dt}>
+          <SliderItem key={item.dt}>
             <p>{item.dt_txt.slice(0, -3)}</p>
             <img
               src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
@@ -49,7 +63,7 @@ const FutureWeather = ({ city }) => {
                 item.weather[0].description.slice(1)}
             </p>
             <p>Temp: {Math.round(Number(item.main.temp))}&#8451;</p>
-          </div>
+          </SliderItem>
         ))}
       </SliderWrap>
     </div>

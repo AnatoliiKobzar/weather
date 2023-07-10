@@ -11,6 +11,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #000;
+
+  ::-webkit-scrollbar { width: 0; }
 }
 
 code {
@@ -38,7 +40,6 @@ p, h1, h2 {
 button::before {
      color: black !important;
 }
-
 
 `;
 

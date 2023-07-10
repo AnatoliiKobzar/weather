@@ -13,6 +13,11 @@ export const Desc = styled.p`
   font-size: 20px;
 `;
 
+export const SliderItem = styled.div`
+  display: flex;
+  width: 300px;
+`;
+
 export const SliderWrap = styled(Slider)`
   padding-top: 16px;
   padding-bottom: 16px;
