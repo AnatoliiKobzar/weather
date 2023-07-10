@@ -25,7 +25,9 @@ ul {
 }
 
 img {
-    display: block;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 p, h1, h2 {

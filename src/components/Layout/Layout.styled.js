@@ -4,7 +4,6 @@ export const Container = styled.div`
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
-  max-width: 960px;
 `;
 
 export const HeaderContainer = styled.div`
@@ -15,7 +14,6 @@ export const HeaderContainer = styled.div`
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
-  max-width: 960px;
 `;
 
 export const Header = styled.header`

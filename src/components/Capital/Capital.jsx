@@ -2,8 +2,9 @@ import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { Wrapper } from 'components/CurrentWeather/CurrentWeather.styled';
 import WeatherCard from 'components/WeatherCard/WeatherCard';
+import { CapitalPhoto, ListItem, PhotoWrap } from './Capital.styled';
 
-const Capital = ({ country, capital }) => {
+const Capital = ({ country, capital, photo }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [currentCity, setCurrentCity] = useState('');
 
@@ -19,14 +20,19 @@ const Capital = ({ country, capital }) => {
   };
 
   return (
-    <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
-      <Wrapper onClick={handleClick}>
-        <h2>{capital}</h2>
-        <p>{country}</p>
-      </Wrapper>
+    <ListItem>
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+        <Wrapper>
+          <h2>{capital}</h2>
+          <p>{country}</p>
+          <PhotoWrap>
+            <CapitalPhoto src={photo} alt={capital} onClick={handleClick} />
+          </PhotoWrap>
+        </Wrapper>
 
-      <WeatherCard handleClick={handleClick} city={currentCity} />
-    </ReactCardFlip>
+        <WeatherCard handleClick={handleClick} city={currentCity} />
+      </ReactCardFlip>
+    </ListItem>
   );
 };
 
