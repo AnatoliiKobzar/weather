@@ -19,6 +19,8 @@ export const HeaderContainer = styled.div`
 export const Header = styled.header`
   border-bottom: solid 1px #949494;
   padding: 8px 0;
+
+  background: #65b5d4;
 `;
 
 export const Wrap = styled.div`
@@ -42,4 +44,5 @@ export const Footer = styled.footer`
   color: #999;
   background-color: #3f3f3f;
   text-align: center;
+  border-top: solid 1px #949494;
 `;

@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
+import backgroundImg from '../../images/backgroung.jpg';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -8,9 +9,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #000;
+  color: #000000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.603), rgba(145, 145, 136, 0.616)),url(${backgroundImg});
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 
   ::-webkit-scrollbar { width: 0; }
 }

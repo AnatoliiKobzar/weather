@@ -17,6 +17,10 @@ export const SliderItem = styled.div`
   text-align: center;
   margin-bottom: 16px;
 
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+
   img {
     display: inline-block;
     vertical-align: middle;
@@ -25,7 +29,6 @@ export const SliderItem = styled.div`
 
 export const SliderWrap = styled(Slider)`
   padding-top: 16px;
-  padding-bottom: 16px;
   border-radius: 8px;
   border: 1px solid #999999;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
