@@ -18,10 +18,12 @@ const WeatherCard = ({ handleClick, city }) => {
 
   const openModal = () => {
     setIsOpenModal(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsOpenModal(false);
+    document.body.style.overflow = '';
   };
 
   useEffect(() => {

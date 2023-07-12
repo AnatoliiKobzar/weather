@@ -18,7 +18,7 @@ export const Overlay = styled.div`
 
 export const ModalWindow = styled.div`
   position: absolute;
-  top: 20%;
+  top: 5%;
   width: 300px;
 
   @media screen and (min-width: 768px) {
@@ -26,6 +26,7 @@ export const ModalWindow = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    width: 855px;
+    top: 20%;
+    width: 940px;
   }
 `;

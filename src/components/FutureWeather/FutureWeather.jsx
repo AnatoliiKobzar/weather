@@ -4,12 +4,12 @@ import { Desc, SliderItem, SliderWrap, WrapFut } from './FutureWeather.styled';
 
 const FutureWeather = ({ city }) => {
   const settings = {
-    slidesToShow: 6,
+    slidesToShow: 7,
     slidesToScroll: 4,
     infinite: false,
     responsive: [
       {
-        breakpoint: 1200, // Указываем ширину экрана при которой срабатывает брэйкпоинт
+        breakpoint: 1200,
         settings: {
           arrows: false,
           slidesToShow: 5,
@@ -17,11 +17,13 @@ const FutureWeather = ({ city }) => {
         },
       },
       {
-        breakpoint: 768, // Указываем ширину экрана при которой срабатывает брэйкпоинт
+        breakpoint: 768,
         settings: {
           arrows: false,
           slidesToShow: 2,
           slidesToScroll: 2,
+          vertical: true,
+          verticalSwiping: true,
         },
       },
     ],

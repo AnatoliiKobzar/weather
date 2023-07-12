@@ -14,8 +14,13 @@ export const Desc = styled.p`
 `;
 
 export const SliderItem = styled.div`
-  display: flex;
-  width: 300px;
+  text-align: center;
+  margin-bottom: 16px;
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
 `;
 
 export const SliderWrap = styled(Slider)`

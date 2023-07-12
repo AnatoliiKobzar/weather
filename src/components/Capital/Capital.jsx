@@ -26,7 +26,12 @@ const Capital = ({ country, capital, photo }) => {
           <h2>{capital}</h2>
           <p>{country}</p>
           <PhotoWrap>
-            <CapitalPhoto src={photo} alt={capital} onClick={handleClick} />
+            <CapitalPhoto
+              src={photo}
+              loading="lazy"
+              alt={capital}
+              onClick={handleClick}
+            />
           </PhotoWrap>
         </Wrapper>
 
