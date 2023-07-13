@@ -43,6 +43,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border-radius: 8px;
   border: 1px solid #999999;
   width: 300px;

@@ -16,7 +16,7 @@ const Capital = ({ country, capital, photo }) => {
       setCurrentCity(capital);
       setTimeout(() => {
         setIsFlipped(false);
-      }, 7000);
+      }, 10000);
     }
   };
 

@@ -10,16 +10,18 @@ export async function getCurrentWeather(city) {
     );
     return weather.data;
   } catch (error) {
-    toast.warn(`City "${city}" not found!`, {
-      position: 'top-right',
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    });
+    if (error.response.status === 404) {
+      toast.warn(`City "${city}" not found!`, {
+        position: 'top-right',
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+    }
   }
 }
 
