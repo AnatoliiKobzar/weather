@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
   border-radius: 8px;
   border: 1px solid #999999;
   width: 300px;
-  min-height: 300px;
+  min-height: 310px;
   padding: 8px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   background-image: linear-gradient(

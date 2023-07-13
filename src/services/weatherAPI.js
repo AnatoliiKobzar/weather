@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const API_KEY = 'd34694c3874a454f7481585be78e8c28';
 
@@ -9,7 +10,16 @@ export async function getCurrentWeather(city) {
     );
     return weather.data;
   } catch (error) {
-    console.error(error);
+    toast.warn(`City "${city}" not found!`, {
+      position: 'top-right',
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
   }
 }
 

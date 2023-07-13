@@ -6,9 +6,8 @@ const GlobalStyle = createGlobalStyle`
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   color: #000000;
   background-image: linear-gradient(rgba(0, 0, 0, 0.603), rgba(145, 145, 136, 0.616)),url(${backgroundImg});
   background-position: center;
@@ -41,9 +40,8 @@ p, h1, h2 {
 }
 
 button::before {
-     color: black !important;
+     color: #d6d6d6 !important;
 }
-
 `;
 
 export default GlobalStyle;

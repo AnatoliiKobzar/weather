@@ -3,6 +3,7 @@ import ReactCardFlip from 'react-card-flip';
 import { Wrapper } from 'components/CurrentWeather/CurrentWeather.styled';
 import WeatherCard from 'components/WeatherCard/WeatherCard';
 import { CapitalPhoto, ListItem, PhotoWrap } from './Capital.styled';
+import { CityName } from 'components/WeatherCard/WeatherCard.styled';
 
 const Capital = ({ country, capital, photo }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -23,7 +24,7 @@ const Capital = ({ country, capital, photo }) => {
     <ListItem>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
         <Wrapper>
-          <h2>{capital}</h2>
+          <CityName>{capital}</CityName>
           <p>{country}</p>
           <PhotoWrap>
             <CapitalPhoto

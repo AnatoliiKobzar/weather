@@ -28,7 +28,7 @@ export const SliderItem = styled.div`
 `;
 
 export const SliderWrap = styled(Slider)`
-  padding-top: 16px;
+  padding: 16px 0;
   border-radius: 8px;
   border: 1px solid #999999;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);

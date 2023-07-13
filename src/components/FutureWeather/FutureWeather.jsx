@@ -59,6 +59,8 @@ const FutureWeather = ({ city }) => {
             <img
               src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
               alt={`${item.weather[0].icon}`}
+              width="100"
+              height="100"
             />
             <p>
               {item.weather[0].description.charAt(0).toUpperCase() +

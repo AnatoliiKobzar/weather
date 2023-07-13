@@ -6,6 +6,7 @@ import {
   Button,
   Wrapper,
 } from 'components/CurrentWeather/CurrentWeather.styled';
+import { BtnMoreDetails, CityName } from './WeatherCard.styled';
 
 const WeatherCard = ({ handleClick, city }) => {
   const [name, setName] = useState('');
@@ -32,6 +33,9 @@ const WeatherCard = ({ handleClick, city }) => {
     }
 
     getCurrentWeather(city).then(resp => {
+      if (!resp) {
+        return;
+      }
       setName(resp.name);
       setIcon(resp.weather[0].icon);
       setMain(resp.weather[0].description);
@@ -43,7 +47,7 @@ const WeatherCard = ({ handleClick, city }) => {
 
   return (
     <Wrapper onClick={handleClick}>
-      <h2>{name}</h2>
+      <CityName>{name}</CityName>
       <img
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
         width="100"
@@ -54,9 +58,9 @@ const WeatherCard = ({ handleClick, city }) => {
       <p>Temp: {Math.round(temp)}&#8451;</p>
       <p>Humidity: {humidity}%</p>
       <p>Wind speed: {wind}m/c</p>
-      <button type="button" onClick={openModal}>
+      <BtnMoreDetails type="button" onClick={openModal}>
         Show more details
-      </button>
+      </BtnMoreDetails>
       {isOpenModal && (
         <Modal>
           <Button type="button" onClick={closeModal}>
